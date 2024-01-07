@@ -26,6 +26,9 @@ dependencies:
   class-validator:
     specifier: ^0.14.0
     version: 0.14.0
+  lodash:
+    specifier: ^4.17.21
+    version: 4.17.21
   reflect-metadata:
     specifier: ^0.1.13
     version: 0.1.13

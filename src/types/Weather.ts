@@ -1,13 +1,13 @@
 export type Weather = {
   main: {
     temp: number;
-    feels_like: number;
-    temp_min: number;
-    temp_max: number;
+    feelsLike: number;
+    tempMin: number;
+    tempMax: number;
     pressure: number;
     humidity: number;
-    sea_level: number;
-    grnd_level: number;
+    seaLevel: number;
+    grndLevel: number;
   };
   visibility: number;
   wind: {
