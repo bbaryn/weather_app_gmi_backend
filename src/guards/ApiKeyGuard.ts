@@ -8,7 +8,7 @@ import {
 @Injectable()
 export class ApiKeyGuard implements CanActivate {
   async canActivate(context: ExecutionContext): Promise<boolean> {
-    const apiKey = context.switchToHttp().getRequest().headers['X-API-KEY'];
+    const apiKey = context.switchToHttp().getRequest().headers['x-api-key'];
 
     if (!apiKey) {
       throw new UnauthorizedException();

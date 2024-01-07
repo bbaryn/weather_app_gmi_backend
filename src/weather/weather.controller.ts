@@ -1,5 +1,10 @@
-import { Controller, Get, Query, UseGuards } from '@nestjs/common';
-import { ApiTags } from '@nestjs/swagger';
+import {
+  Controller,
+  Get,
+  Query,
+  UseGuards,
+  ValidationPipe,
+} from '@nestjs/common';
 
 import { ApiKeyGuard } from 'src/guards/ApiKeyGuard';
 import { Weather } from 'src/types/Weather';
@@ -12,10 +17,9 @@ export class WeatherController {
   constructor(private readonly weatherService: WeatherService) {}
 
   @Get()
-  @ApiTags('weather')
   @UseGuards(ApiKeyGuard)
   getWeatherByLocation(
-    @Query() query: GetWeatherByLocationDto,
+    @Query(ValidationPipe) query: GetWeatherByLocationDto,
   ): Promise<Weather> {
     return this.weatherService.getWeatherByLocation(query);
   }
