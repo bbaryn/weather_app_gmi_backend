@@ -1,5 +1,6 @@
-import { Controller, Get, Query } from '@nestjs/common';
+import { Controller, Get, Query, UseGuards } from '@nestjs/common';
 
+import { ApiKeyGuard } from 'src/guards/ApiKeyGuard';
 import { Weather } from 'src/types/Weather';
 
 import { GetWeatherByLocationDto } from './dto/getWeatherByLocation.dto';
@@ -10,6 +11,7 @@ export class WeatherController {
   constructor(private readonly weatherService: WeatherService) {}
 
   @Get()
+  @UseGuards(ApiKeyGuard)
   getWeatherByLocation(
     @Query() query: GetWeatherByLocationDto,
   ): Promise<Weather> {
