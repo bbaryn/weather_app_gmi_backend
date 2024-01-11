@@ -1,11 +1,11 @@
-import { IsNotEmpty, IsString } from 'class-validator';
+import { IsLatitude, IsLongitude, IsNotEmpty } from 'class-validator';
 
 export class GetWeatherByLocationDto {
   @IsNotEmpty()
-  @IsString()
+  @IsLatitude()
   lat: string;
 
   @IsNotEmpty()
-  @IsString()
+  @IsLongitude()
   lon: string;
 }
