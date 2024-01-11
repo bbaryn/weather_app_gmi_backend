@@ -24,10 +24,16 @@ export class WeatherService {
         visibility: currentWeather.data.visibility,
         wind: currentWeather.data.wind,
         clouds: currentWeather.data.clouds,
+        coord: currentWeather.data.coord,
+        weather: currentWeather.data.weather,
+        name: currentWeather.data.name,
+        sys: {
+          country: currentWeather.data.sys.country,
+        },
       };
     } catch (error) {
       if (axios.isAxiosError(error)) {
-        errorHandler(error?.response.status);
+        errorHandler(error?.response?.status);
       }
 
       return error.response;
@@ -51,7 +57,7 @@ export class WeatherService {
       });
     } catch (error) {
       if (axios.isAxiosError(error)) {
-        errorHandler(error?.response.status);
+        errorHandler(error?.response?.status);
       }
 
       return error.response;
