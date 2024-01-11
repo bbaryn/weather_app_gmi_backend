@@ -7,6 +7,7 @@ import {
 } from '@nestjs/common';
 
 import { ApiKeyGuard } from 'src/guards/ApiKeyGuard';
+import { Location } from 'src/types/Location';
 import { Weather } from 'src/types/Weather';
 
 import { GetLocationListDto } from './dto/getLocationList.dto';
@@ -19,7 +20,9 @@ export class WeatherController {
 
   @Get('/location-list')
   @UseGuards(ApiKeyGuard)
-  getLocations(@Query(ValidationPipe) query: GetLocationListDto): Promise<any> {
+  getLocations(
+    @Query(ValidationPipe) query: GetLocationListDto,
+  ): Promise<Location[]> {
     return this.weatherService.getLocationList(query);
   }
 
