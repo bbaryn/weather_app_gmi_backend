@@ -32,7 +32,8 @@ _This project uses pnpm!_
 
 - [`nestjs`](https://nestjs.com/) - A progressive Node.js framework for building efficient, reliable and scalable server-side applications.
 - [`class-validator`](https://github.com/typestack/class-validator) - Allows use of decorator and non-decorator based validation
-- [`lodash`](https://github.com/lodash/lodash) - Lodash makes JavaScript easier by taking the hassle out of working with arrays, numbers, objects, strings, etc.
+- [`axios`](https://axios-http.com/) - Axios is a simple promise based HTTP client for the browser and node.js
+- [`lodash`](https://lodash.com/) - Lodash makes JavaScript easier by taking the hassle out of working with arrays, numbers, objects, strings, etc.
 
 ## Planned improvements
 
