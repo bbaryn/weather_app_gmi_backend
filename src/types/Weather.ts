@@ -18,4 +18,16 @@ export type Weather = {
   clouds: {
     all: number;
   };
+  coord: {
+    lon: number;
+    lat: number;
+  };
+  weather: {
+    main: string;
+    description: string;
+  }[];
+  sys: {
+    country: string;
+  };
+  name: string;
 };
