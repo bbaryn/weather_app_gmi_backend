@@ -9,6 +9,7 @@ import {
 import { ApiKeyGuard } from 'src/guards/ApiKeyGuard';
 import { Weather } from 'src/types/Weather';
 
+import { GetLocationListDto } from './dto/getLocationList.dto';
 import { GetWeatherByLocationDto } from './dto/getWeatherByLocation.dto';
 import { WeatherService } from './weather.service';
 
@@ -16,7 +17,13 @@ import { WeatherService } from './weather.service';
 export class WeatherController {
   constructor(private readonly weatherService: WeatherService) {}
 
-  @Get()
+  @Get('/location-list')
+  @UseGuards(ApiKeyGuard)
+  getLocations(@Query(ValidationPipe) query: GetLocationListDto): Promise<any> {
+    return this.weatherService.getLocationList(query);
+  }
+
+  @Get('/forecast')
   @UseGuards(ApiKeyGuard)
   getWeatherByLocation(
     @Query(ValidationPipe) query: GetWeatherByLocationDto,
